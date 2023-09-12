@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a Post</title>
+</head>
+<body>
+    <h1>Create a Post</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if request.user.is_authenticated %}
+        <p>Welcome, {{ request.user.username }}!</p>
+    {% else %}
+        <p>You are not logged in.</p>
+        {% endif %}
+        <button type="submit">Create Post</button>
+    </form>
+</body>
+</html>
