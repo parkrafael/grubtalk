@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# views 
 from post.views import create_post
 from post.views import post_list
 from post.views import post_detail
@@ -25,7 +26,6 @@ from post.views import post_detail
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 app_name = "userinfo"
 
 urlpatterns = [
@@ -33,10 +33,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # front page (login & register)
     path('', include('profile.urls',namespace="profile")),
+    # create post
     path('create/', create_post, name = 'create_post'),
+    # view posts
     path('posts/', post_list, name='post_list'),
+    # view individual post
     path('posts/<int:post_id>/', post_detail, name='post_detail'),
-
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

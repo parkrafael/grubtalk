@@ -1,11 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 
-# Create your views here.
-from django.shortcuts import render, redirect
-from .forms import NewUserForm
-from django.contrib.auth import login, authenticate
 from django.contrib import messages
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
+
+from .forms import NewUserForm
 
 def index(request):
 	return render(request,'frontpage.html')
