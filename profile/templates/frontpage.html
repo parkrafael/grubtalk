@@ -1,15 +1,66 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrubTalk</title>
-</head>
-<body>
-    <h1>Welcome to GrubTalk</h1>
 
-    <a href="{% url 'profile:register' %}" class="btn btn-primary">Register</a>
-    <a href="{% url 'profile:login' %}" class="btn btn-secondary">Login</a>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add Bootstrap JavaScript and jQuery (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
+
+    <style>
+        .logo-text {
+            font-weight: 500;
+            font-family: 'Neuton', sans-serif;
+            font-size: 100px;
+        }
+
+        body {
+            background-color: #EBF0E0;
+            background-image: url('{% static "happy.svg" %}');
+        }
+
+        /* Style for the Maria Stamenkovic text */
+        .maria-text {
+            position: absolute;
+            bottom: 20px; /* Adjust the distance from the bottom as needed */
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-6 text-center">
+                <div class="logo-text">GrubTalk</div>
+                <h5 class="mb-4">Explore Flavorful Moments, One Bite at a Time.</h5> <!-- Added mb-4 class for margin-bottom -->
+    
+                <a href="{% url 'profile:register' %}" class="btn btn-dark mr-3">Register</a>
+                <a href="{% url 'profile:login' %}" class="btn btn-dark">Login</a>
+
+                
+            </div>
+
+            <div class="maria-text">⟡ Inspired by Maria Stamenkovic ⟡</div>
+
+
+        </div>
+    </div>
+    
 </body>
 </body>
 </html>

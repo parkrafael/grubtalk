@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Detail</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>User: {{ post.user.username }}</p>
+    <p>Date Created: {{ post.created_at }}</p>
+    <p>Content: {{ post.content }}</p>
+    <img src="{{ post.image_one.url }}" alt="Image 1">
+    <img src="{{ post.image_two.url }}" alt="Image 2">
+    <img src="{{ post.image_three.url }}" alt="Image 3">
+</body>
+</html>

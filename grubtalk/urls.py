@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 from post.views import create_post
+from post.views import post_list
+from post.views import post_detail
 
 # for uploading images
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 app_name = "userinfo"
 
@@ -31,6 +34,9 @@ urlpatterns = [
     # front page (login & register)
     path('', include('profile.urls',namespace="profile")),
     path('create/', create_post, name = 'create_post'),
+    path('posts/', post_list, name='post_list'),
+    path('posts/<int:post_id>/', post_detail, name='post_detail'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
