@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,10 @@
     <style>
         body {
             background-color: #EBF0E0;
+            background-image: url('{% static 'profile/background4.svg' %}');
+            background-repeat: no-repeat;
+            background-size: 175%;
+            background-position: center bottom 40%;
         }
 
         {% comment %} style for grubtalk logo {% endcomment %}

@@ -1,5 +1,6 @@
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,18 +17,30 @@
     <style>
         body {
             background-color: #EBF0E0;
-            background-imag
+            background-image: url('{% static 'profile/background5.svg' %}');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center bottom 40%;
         }
 
         .header-text {
             font-weight: 600;
             font-size: 40px;
         }
+
+        .form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 2%; /* Makes the box round */
+            max-width:700px; /* Adjust the maximum width as needed */
+            margin: 10px auto;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="d-flex flex-column align-items-center justify-content-center">
+    <div class="d-flex flex-column align-items-center justify-content-center form-box">
 
         <div class="text-center header-text my-4">Let's get your account set up</div>
 
@@ -37,8 +50,7 @@
             <button type="submit" class="btn btn-dark btn-block mb-5">Register</button>
         </form>
 
-        {% load static %}
-        <img src="{% static "profile/image.jpg" %}" alt="My image"/>
+        <div class="box blue"></div>
 
      </div>
 </body>
