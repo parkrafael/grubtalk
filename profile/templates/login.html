@@ -1,6 +1,6 @@
-{% comment %} crispy form imports {% endcomment %}
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,48 +14,65 @@
     {% comment %} Neuton Font {% endcomment %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
 
-    {% comment %} ** styling ** {% endcomment %}
     <style>
       body {
         background-color: #EBF0E0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Make the body full height of the viewport */
+        margin: 0; /* Remove default margin to ensure full width */
+
+        {% comment %} svg base colour: #394A39 {% endcomment %}
+        background-image: url('{% static 'profile/login_background.svg' %}');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center bottom 40%;
       }
 
       .header-text {
-        font-family: 'Neuton', sans-serif;
-        font-weight: 400;
-        font-size: 75px;
-        margin-top: 100px;
+        font-weight: 600;
+        font-size: 40px;
       }
 
-      {% comment %} form fields {% endcomment %}
-      .form-fields {
-        width: 35%;
-        margin: 0 auto;
+      .header-logo {
+        font-size: 100px;
       }
+
+      .form-box {
+        background-color: white;
+        padding: 50px;
+        {% comment %} makes the box round {% endcomment %}
+        border-radius: 2%; 
+        max-width 700px;
+        margin: 5px auto;
+      }
+
     </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="row center-form">
-      <div class="col-md-12 text-center">
+  <div class="d-flex flex-column align-items-center justify-content-center form-box">
+      {% comment %} header {% endcomment %}
+      <div class="text-center header-logo">🦦</div>
+      <div class="text-center header-text mb-5">Welcome back to GrubTalk</div>
 
-          {% comment %} header {% endcomment %}
-          <div class="mt-1 mb-2 header-text">Login to GrubTalk</div>
+      {% comment %} login form & button {% endcomment %}
+      <form  method="post">
+        <div class="form-fields">
+          {% csrf_token %}
+          {{ login_form | crispy }}
+          <input type="submit" value="Submit" class="btn btn-dark btn-block mt-3 mb-5">
+        </div>
+      </form>
 
-          {% comment %} form {% endcomment %}
-          <form method="post">
-            {% csrf_token %}
-
-            <div class="form-fields">
-              {{ login_form | crispy }}
-            </div>
-            
-            <button class="btn btn-dark mt-3" type="submit"> Submit </button>
-          </form>
-
-      </div>
-    </div>
+      {% if user.is_authenticated %}
+      <!-- Content to display when the user is logged in -->
+      <p>Welcome, {{ user.username }}!</p>
+      {% else %}
+      <!-- Content to display when the user is not logged in -->
+      <p>You are not logged in.</p>
+      {% endif %}
   </div>
 </body>
 

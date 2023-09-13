@@ -45,7 +45,7 @@
                 {% comment %} form {% endcomment %}
                 <form method="post">
                     {% csrf_token %}
-                    <div class="form-fields">
+                    <div class="form-fields" action="{% url '' %}">
                         {{ register_form|crispy }}
                         <button type="submit" class="btn btn-dark mt-3 mb-5">Register</button>
                     </div>
