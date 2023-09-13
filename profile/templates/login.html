@@ -1,30 +1,62 @@
+{% comment %} crispy form imports {% endcomment %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GrubTalk | Login</title>
+
+    {% comment %} Bootstrap {% endcomment %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% comment %} Neuton Font {% endcomment %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
+
+    {% comment %} ** styling ** {% endcomment %}
+    <style>
+      body {
+        background-color: #EBF0E0;
+      }
+
+      .header-text {
+        font-family: 'Neuton', sans-serif;
+        font-weight: 400;
+        font-size: 75px;
+        margin-top: 100px;
+      }
+
+      {% comment %} form fields {% endcomment %}
+      .form-fields {
+        width: 35%;
+        margin: 0 auto;
+      }
+    </style>
 </head>
+
 <body>
-    {% block content %}    
-    
-    <!--Login--> 
-    <div class="container py-5">
-      <h1>Login</h1>
-      <form method="POST">
-        {% csrf_token %}
-        {{ login_form.as_p }}
-        <button class="btn btn-primary" type="submit">Login</button>
-      </form>
-      <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+  <div class="container">
+    <div class="row center-form">
+      <div class="col-md-12 text-center">
+
+          {% comment %} header {% endcomment %}
+          <div class="mt-1 mb-2 header-text">Login to GrubTalk</div>
+
+          {% comment %} form {% endcomment %}
+          <form method="post">
+            {% csrf_token %}
+
+            <div class="form-fields">
+              {{ login_form | crispy }}
+            </div>
+            
+            <button class="btn btn-dark mt-3" type="submit"> Submit </button>
+          </form>
+
+      </div>
     </div>
-    
-    {% if request.user.is_authenticated %}
-        <p>Welcome, {{ request.user.username }}!</p>
-    {% else %}
-        <p>You are not logged in.</p>
-    {% endif %}
-    
-    {% endblock %}
+  </div>
 </body>
+
 </html>
