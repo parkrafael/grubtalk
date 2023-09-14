@@ -32,9 +32,8 @@
         .form-box {
             background-color: white;
             padding: 30px;
-            {% comment %} makes the box round {% endcomment %}
-            border-radius: 2%; 
-            max-width:700px;
+            border-radius: 2% !important; /* Increase specificity and use !important */
+            max-width: 700px;
             margin: 50px auto;
         }
 

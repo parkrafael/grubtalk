@@ -11,6 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     {% comment %} Neuton Font {% endcomment %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap">
 
     <style>
         body {
@@ -24,7 +25,7 @@
         {% comment %} style for grubtalk logo {% endcomment %}
         .logo-text {
             font-family: 'Neuton', sans-serif;
-            font-weight: 400;
+            font-weight: 600;
             font-size: 125px;
         }
 
@@ -40,26 +41,20 @@
 
 <body>
     <div class="container">
-        {% comment %} row = horizontal grouping of columns // min-vh-100 = vertically centers columns {% endcomment %}
-        <div class="row justify-content-center align-items-center min-vh-100">
+        {% comment %} vertically centers the content {% endcomment %}
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
 
-            <div class="col-md-6 text-center">
-
+            <div class="text-center">
                 <div class="logo-text">GrubTalk</div>
-
-                {% comment %} mb-4 = bottom margin {% endcomment %}
                 <h5 class="mb-4">Explore Flavorful Moments, One Bite at a Time.</h5>
 
-                {% comment %} buttons // mr-3 = right margin {% endcomment %}
                 <a href="{% url 'profile:register' %}" class="btn btn-dark mr-3">Register</a>
-                <a href="{% url 'profile:login' %}" class="btn btn-secondary">Sign In</a> 
-                               
+                <a href="{% url 'profile:login' %}" class="btn btn-secondary">Sign In</a>
             </div>
 
             {% comment %} easter egg {% endcomment %}
-            <div class="maria-text"> Idea inspired by Maria Stamenkovic 🦦💕</div>
+            <div class="maria-text">Idea inspired by Maria Stamenkovic 🦦💕</div>
         </div>
     </div>
 </body>
-
 </html>

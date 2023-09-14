@@ -11,8 +11,10 @@
 
     {% comment %} Bootstrap {% endcomment %}
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    {% comment %} Neuton Font {% endcomment %}
+    {% comment %} Fonts {% endcomment %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap">
+
 
     <style>
       body {
@@ -31,14 +33,15 @@
       }
 
       .header-text {
-        font-weight: 600;
-        font-size: 20px;
+        font-weight: 400;
+        font-size: 5px;
       }
 
       .header-logo {
         font-family: 'Neuton', sans-serif;
-        font-weight: 400;
-        font-size: 70px;
+        font-weight: 600;
+        font-size: 62.5px;
+        margin-bottom: 20px;
       }
 
       .form-box {
@@ -46,8 +49,13 @@
         padding: 50px;
         {% comment %} makes the box round {% endcomment %}
         border-radius: 2%; 
-        max-width 700px;
+        max-width: 700px;
         margin: 5px auto;
+      }
+
+      /* Adjust the margin for the button */
+      .btn-block {
+        margin-top: 20px;
       }
     </style>
 </head>
@@ -56,16 +64,16 @@
   <div class="d-flex flex-column align-items-center justify-content-center form-box">
       {% comment %} header {% endcomment %}
 
-      <div class="header-logo">GrubTalk</div>
+      <div class="header-logo mb-3">GrubTalk</div>
 
-      <div class="text-center header-text mb-4">Welcome back! We're delighted to see you again</div>
+      {% comment %} <div class="text-center header-text mb-4">Welcome back! We're delighted to see you again</div> {% endcomment %}
 
       {% comment %} login form & button {% endcomment %}
       <form  method="post">
         <div class="form-fields">
           {% csrf_token %}
           {{ login_form | crispy }}
-          <input type="submit" value="Submit" class="btn btn-dark btn-block mt-4 mb-5">
+          <input type="submit" value="Login" class="btn btn-dark btn-block mb-4">
         </div>
       </form>
 
