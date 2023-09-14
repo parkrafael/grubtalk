@@ -9,9 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrubTalk | Posts</title>
 
-    {% comment %} Bootstrap {% endcomment %}
+    <!-- ============ bootstrap & neuton font ============  -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    {% comment %} Neuton Font {% endcomment %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
 
     <style>
@@ -62,15 +61,16 @@
             border-collapse: separate;
         }
 
-        /* Row hover styling */
+        /* row hover styling */
         tr:hover td {
-            background-color: #C7D9BF;
+            background-color: #977E9B;
+            font-color: #FFFFFF;
         }
     </style>
 </head>
 
 <body>
-    <!-- ============ table row styling ============  -->
+    <!-- ============ navbar ============  -->
     <nav class="navbar justify-content-center my-3">
         <ul class="navbar-nav list-group-horizontal" style="font-weight: 600;">
             <li class="ml-5"><a class="items" href="#">Profile</a></li>
@@ -88,16 +88,14 @@
             <li class="mr-5"><a class="items" href="#">Log Out</a></li>
         </ul>
     </nav>
-    
 
-
-    <!-- Table -->
+    <!-- ============ table ============  -->
     <div class="container">
         <table class="test" style="border-spacing: 0 20px;">
             <tbody>
                 {% for post in posts %}
                 <tr onclick="window.location='{% url 'post_detail' post.id %}';">
-                    <td><img src="{{ post.image_one.url }}" alt="Post Image" style="object-fit: cover; width: 100%; height: 100%; width: 100px; height: 100px; overflow: hidden;"/></td>
+                    <td><img src="{{ post.image_one.url }}" alt="Post Image" style="object-fit: cover; width: 100%; height: 100%; width: 100px; height: 100px; overflow: hidden;, border: 40px solid black;"/></td>
                     <td>{{ post.title }}</td>
                     <td>@{{ post.user.username }}</td>
                     <td>{{ post.created_at }}</td>
