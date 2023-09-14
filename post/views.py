@@ -12,7 +12,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.user = request.user  # Set the user to the currently logged-in user
             post.save()
-            # return redirect('post_detail', pk=post.pk)  # Redirect to the post detail view
+            return redirect("post_all")  # Redirect to the post detail view
     else:
         form = PostForm()
     

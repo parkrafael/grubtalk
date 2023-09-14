@@ -1,19 +1,58 @@
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Create a Post</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrubTalk | Create Post</title>
+
+    {% comment %} Bootstrap {% endcomment %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% comment %} Neuton Font {% endcomment %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
+
+    <style>
+        body {
+            background-color: #EBF0E0;
+            {% comment %} svg base colour: #394A39 {% endcomment %}
+            background-image: url('{% static 'profile/login_background2.svg' %}');
+            background-repeat: no-repeat;
+            background-size: 120%;
+            background-position: right 65% bottom 75%;
+        }
+
+        .header-text {
+            font-weight: 600;
+            font-size: 40px;
+        }
+
+        .form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 2% !important; /* Increase specificity and use !important */
+            max-width: 700px;
+            margin: 50px auto;
+        }
+
+    </style>
 </head>
+
 <body>
-    <h1>Create a Post</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if request.user.is_authenticated %}
-        <p>Welcome, {{ request.user.username }}!</p>
-    {% else %}
-        <p>You are not logged in.</p>
-        {% endif %}
-        <button type="submit">Create Post</button>
-    </form>
+    {% block content %}
+    <div class="d-flex flex-column align-items-center justify-content-center form-box">
+        {% comment %} header text {% endcomment %}
+        <div class="text-center header-text my-4">Create Post</div>
+
+        {% comment %} post form & button {% endcomment %}
+        <form  method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <button type="submit" class="btn btn-dark btn-block mb-5">Post</button>
+        </form>
+     </div>
+     {% endblock %}
 </body>
 </html>

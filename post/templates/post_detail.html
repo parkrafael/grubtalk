@@ -1,15 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Post Detail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrubTalk | Post </title>
+
+    <!-- Include Bootstrap and Neuton Font -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
+
+    <style>
+        body {
+            background-color: #F3F3EA;
+        }
+        /* ============ navbar styling ============ */
+        .navbar {
+            background-color: #F3F3EA; /* Background color matching the image */
+        }
+
+        .navbar-nav a {
+            color: #483A4A;
+            padding: 10px 30px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .items:hover {
+            color: #FFFFFF;
+            background-color: #483A4A; /* Add background color on hover */
+            border-radius: 5px; /* Add rounded corners */
+        }
+
+        .navbar-nav .logo:hover {
+            color: #977E9B;
+        }
+        /* ============ post styling ============ */
+        .container {}
+
+        .post-detail {
+            background-color: white;
+            border-radius: 25px 25px;
+            max-width: 75%;
+            margin: 50auto;
+            padding: 30px;
+        }
+
+        
+        .post-title {
+            font-weight: 600;
+            font-size: 40px;
+        }
+
+        .post-info {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .post-content {
+            margin-top: 20px;
+        }
+
+        .post-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .header-text {
+            font-weight: 600;
+            font-size: 40px;
+        }
+
+
+    </style>
 </head>
+
 <body>
-    <h1>{{ post.title }}</h1>
-    <p>User: {{ post.user.username }}</p>
-    <p>Date Created: {{ post.created_at }}</p>
-    <p>Content: {{ post.content }}</p>
-    <img src="{{ post.image_one.url }}" alt="Image 1">
-    <img src="{{ post.image_two.url }}" alt="Image 2">
-    <img src="{{ post.image_three.url }}" alt="Image 3">
+    <!-- ============ table row styling ============  -->
+    <nav class="navbar justify-content-center my-3">
+        <ul class="navbar-nav list-group-horizontal" style="font-weight: 600;">
+            <li class="ml-5"><a class="items" href="#">Profile</a></li>
+            <li class="ml-5"><a class="items" href="#">Friends</a></li>
+        </ul>
+
+        <ul class="navbar-nav list-group-horizontal" style="font-weight: 600;">
+            <h1 class="display-5 mr-5 ml-5" style="font-weight: 600; font-family: 'Neuton', sans-serif; color: #212529;">
+                <a class="logo" href="#">GrubTalk</a>
+            </h1>
+        </ul>
+
+        <ul class="navbar-nav list-group-horizontal" style="font-weight: 600;">
+            <li class="mr-5"><a class="items" href="#">Create</a></li>
+            <li class="mr-5"><a class="items" href="#">Log Out</a></li>
+        </ul>
+    </nav>
+    
+
+    <!-- Post Detail Content -->
+    <div class="d-flex flex-column align-items-center justify-content-center form-box">
+        <div class="post-detail">
+            <h1 class="post-title">{{ post.title }}</h1>
+            <p class="post-info">User: {{ post.user.username }}</p>
+            <p class="post-info">Date Created: {{ post.created_at }}</p>
+            <p class="post-content">Content: {{ post.content }}</p>
+            <img class="post-image" src="{{ post.image_one.url }}" alt="Image 1">
+            <img class="post-image" src="{{ post.image_two.url }}" alt="Image 2">
+            <img class="post-image" src="{{ post.image_three.url }}" alt="Image 3">
+        </div>
+    </div>
+
+
 </body>
 </html>
