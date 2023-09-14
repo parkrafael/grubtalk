@@ -24,19 +24,21 @@
         margin: 0; /* Remove default margin to ensure full width */
 
         {% comment %} svg base colour: #394A39 {% endcomment %}
-        background-image: url('{% static 'profile/login_background.svg' %}');
+        background-image: url('{% static 'profile/photo2.svg' %}');
         background-repeat: no-repeat;
-        background-size: 100%;
-        background-position: center bottom 40%;
+        background-size: 125%;
+        background-position: right 25% bottom 30%;
       }
 
       .header-text {
         font-weight: 600;
-        font-size: 40px;
+        font-size: 20px;
       }
 
       .header-logo {
-        font-size: 100px;
+        font-family: 'Neuton', sans-serif;
+        font-weight: 400;
+        font-size: 70px;
       }
 
       .form-box {
@@ -47,32 +49,26 @@
         max-width 700px;
         margin: 5px auto;
       }
-
     </style>
 </head>
 
 <body>
   <div class="d-flex flex-column align-items-center justify-content-center form-box">
       {% comment %} header {% endcomment %}
-      <div class="text-center header-logo">🦦</div>
-      <div class="text-center header-text mb-5">Welcome back to GrubTalk</div>
+
+      <div class="header-logo">GrubTalk</div>
+
+      <div class="text-center header-text mb-4">Welcome back! We're delighted to see you again</div>
 
       {% comment %} login form & button {% endcomment %}
-      <form  method="post" action="{% url 'post_all' %}">
+      <form  method="post">
         <div class="form-fields">
           {% csrf_token %}
           {{ login_form | crispy }}
-          <input type="submit" value="Submit" class="btn btn-dark btn-block mt-3 mb-5">
+          <input type="submit" value="Submit" class="btn btn-dark btn-block mt-4 mb-5">
         </div>
       </form>
 
-      {% if user.is_authenticated %}
-      <!-- Content to display when the user is logged in -->
-      <p>Welcome, {{ user.username }}!</p>
-      {% else %}
-      <!-- Content to display when the user is not logged in -->
-      <p>You are not logged in.</p>
-      {% endif %}
   </div>
 </body>
 
