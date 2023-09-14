@@ -26,8 +26,6 @@ from post.views import post_detail
 from django.conf import settings
 from django.conf.urls.static import static
 
-app_name = "userinfo"
-
 urlpatterns = [
     # admin page
     path('admin/', admin.site.urls),
@@ -36,7 +34,7 @@ urlpatterns = [
     # create post
     path('create/', create_post, name = 'create_post'),
     # view posts
-    path('posts/', post_list, name='post_list'),
+    path('posts/', post_list, name='post_all'),
     # view individual post
     path('posts/<int:post_id>/', post_detail, name='post_detail'),
 

@@ -42,16 +42,18 @@
 </head>
 
 <body>
+    {% block content %}
     <div class="d-flex flex-column align-items-center justify-content-center form-box">
         {% comment %} header text {% endcomment %}
         <div class="text-center header-text my-4">Let's get your account set up</div>
 
         {% comment %} post form & button {% endcomment %}
-        <form method="post">
+        <form  method="POST">
             {% csrf_token %}
             {{ register_form | crispy }}
             <button type="submit" class="btn btn-dark btn-block mb-5">Register</button>
         </form>
      </div>
+     {% endblock %}
 </body>
 </html>

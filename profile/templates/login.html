@@ -58,7 +58,7 @@
       <div class="text-center header-text mb-5">Welcome back to GrubTalk</div>
 
       {% comment %} login form & button {% endcomment %}
-      <form  method="post">
+      <form  method="post" action="{% url 'post_all' %}">
         <div class="form-fields">
           {% csrf_token %}
           {{ login_form | crispy }}
