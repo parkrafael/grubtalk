@@ -105,7 +105,7 @@
             <div class="text-center header-text my-4">Create a New Post</div>
 
             {% comment %} post form & button {% endcomment %}
-            <form  method="POST">
+            <form  method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button type="submit" class="btn btn-dark btn-block mb-5">Post</button>
