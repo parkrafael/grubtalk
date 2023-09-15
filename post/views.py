@@ -18,10 +18,12 @@ def create_post(request):
     
     return render(request, 'create.html', {'form': form})
 
-def post_list(request):
+@login_required
+def post_all(request):
     posts = Post.objects.all()  # Retrieve all posts from the database
-    return render(request, 'post_list.html', {'posts': posts})
+    return render(request, 'post_all.html', {'posts': posts})
 
-def post_detail(request, post_id):
+@login_required
+def post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'post_detail.html', {'post': post})
+    return render(request, 'post.html', {'post': post})

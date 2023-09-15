@@ -19,12 +19,14 @@ from django.urls import path, include
 
 # views 
 from post.views import create_post
-from post.views import post_list
-from post.views import post_detail
+from post.views import post
+from post.views import post_all
 
 # for uploading images
 from django.conf import settings
 from django.conf.urls.static import static
+
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # admin page
@@ -32,11 +34,12 @@ urlpatterns = [
     # front page (login & register)
     path('', include('profile.urls',namespace="profile")),
     # create post
-    path('create/', create_post, name = 'create_post'),
+    path('create/', create_post, name = 'create'),
     # view posts
-    path('posts/', post_list, name='post_all'),
+    path('post_all/', post_all, name='post_all'),
     # view individual post
-    path('posts/<int:post_id>/', post_detail, name='post_detail'),
+    path('post/<int:post_id>/', post, name='post'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -22,14 +22,6 @@
             background-position: center bottom 40%;
         }
 
-        {% comment %} style for grubtalk logo {% endcomment %}
-        .logo-text {
-            font-family: 'Neuton', sans-serif;
-            font-weight: 600;
-            font-size: 125px;
-            color: #3A444A;
-        }
-
         {% comment %} style for "Inspired by Maria Stamenkovic" {% endcomment %}
         .maria-text {
             position: absolute;
@@ -45,12 +37,14 @@
         {% comment %} vertically centers the content {% endcomment %}
         <div class="d-flex justify-content-center align-items-center min-vh-100">
 
-            <div class="text-center">
-                <div class="logo-text">GrubTalk</div>
+            <div class="d-flex align-items-center flex-column">
+                <h5 class="display-1" style="font-family: 'Neuton', sans-serif; font-weight: 600; font-size: 120px;">GrubTalk<h5>
                 <h5 class="mb-4">Explore Flavorful Moments, One Bite at a Time.</h5>
 
+                <div class="d-flex flex-row">
                 <a href="{% url 'profile:register' %}" class="btn btn-dark mr-3">Register</a>
                 <a href="{% url 'profile:login' %}" class="btn btn-secondary">Sign In</a>
+                </div>
             </div>
 
             {% comment %} easter egg {% endcomment %}
