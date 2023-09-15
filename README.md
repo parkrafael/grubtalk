@@ -2,7 +2,7 @@
 
 <h3 align="center">Welcome Page</h1>
 <p align="center">
-  <img src="readme_files/landing_page.png" alt="animated" />
+  <img src="readme_files/front_page_color.png" alt="animated" />
 </p>
 
 <h3 align="center">Registeration</h1>
