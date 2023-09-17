@@ -15,27 +15,26 @@
 
     <style>
         body {
-            background-color: #F3F3EA;
+            background-color: #FFFFFF;
         }
         /* ============ navbar styling ============ */
         .navbar {
-            background-color: #F3F3EA; /* Background color matching the image */
+            background-color: #FFFFFF; /* Background color matching the image */
         }
 
         .navbar-nav a {
-            color: #483A4A;
+            color: #1E2125;
             text-decoration: none;
-            transition: color 0.75s;
         }
         
         .navbar-nav .nav-link:hover {
             color: #FFFFFF;
-            background-color: #483A4A; /* Add background color on hover */
+            background-color: #FFAC63; /* Add background color on hover */
             border-radius: 5px; /* Add rounded corners */
         }
 
         .navbar-nav .logo:hover {
-            color: #977E9B;
+            color: #FFAC63;
         }
         /* ============ table row styling ============ */
         .all-posts {
@@ -66,8 +65,20 @@
 
         /* row hover styling */
         tr:hover td {
-            background-color: #483A4A;
-            color: white;
+            background-color: #D7D7D7;
+        }
+
+        .post-title {
+            font-weight: bold;
+            font-size: 18px; /* Adjust the font size as needed */
+        }
+    
+        .post-content {
+            font-size: 14px; /* Adjust the font size as needed */
+        }
+
+        .post-text {
+            color: #1E2125;
         }
 
     </style>
@@ -124,11 +135,17 @@
             <tbody>
                 {% for post in posts %}
                 <tr onclick="window.location='{% url 'post' post.id %}';">
-                    <td><img src="{{ post.image_one.url }}" alt="Post Image" style="object-fit: cover; width: 100%; height: 100%; width: 100px; height: 100px; overflow: hidden; border-radius: 10px;"/></td>
-                    <td>{{ post.title }}</td>
-                    <td>@{{ post.user.username }}</td>
-                    <td>{{ post.created_at }}</td>
-                    <td>{{ post.content|slice:"100" }}</td>
+                    <td>
+                        <img src="{{ post.image_one.url }}" alt="Post Image" style="object-fit: cover; width: 100%; height: 100%; width: 100px; height: 100px; overflow: hidden; border-radius: 10px;"/>
+                    </td>
+                    <td>
+                        <div>
+                            <div class="post-title post-text">{{ post.title }}</div>
+                            <div class="post-content post-text">{{ post.content|slice:"100" }}</div>
+                        </div>
+                    </td>
+                    <td class="post-text">@{{ post.user.username }}</td>
+                    <td class="post-text">{{ post.created_at }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -136,3 +153,7 @@
     </div>
 </body>
 </html>
+
+
+
+

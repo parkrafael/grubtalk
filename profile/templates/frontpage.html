@@ -15,40 +15,38 @@
 
     <style>
         body {
-            background-color: #EFF0E0;
-            background-image: url('{% static 'profile/frontpage_background.svg' %}');
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            background-image: url('{% static 'profile/COFFEE.svg' %}');
             background-repeat: no-repeat;
-            background-size: 175%;
-            background-position: center bottom 40%;
+            background-size: 75% cover;
+            background-position: center bottom -150px; /* 5px margin at the top */
         }
 
-        {% comment %} style for "Inspired by Maria Stamenkovic" {% endcomment %}
         .maria-text {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             text-align: center;
-            font-size: 10px;
+            font-size: 7px;
         }
+
+        
     </style>
 </head>
 
 <body>
     <div class="container">
-        {% comment %} vertically centers the content {% endcomment %}
-        <div class="d-flex justify-content-center align-items-center min-vh-100">
-
-            <div class="d-flex align-items-center flex-column">
-                <h5 class="display-1" style="font-family: 'Neuton', sans-serif; font-weight: 600; font-size: 120px;">GrubTalk<h5>
+        <div class="d-flex justify-content-center align-items-center align-self-center min-vh-100">
+            <div class="text-center"> <!-- Center content -->
+                <h5 style="font-family: 'Neuton', sans-serif; font-weight: 600; font-size: 120px;">Grub<span style="color: #FFAC63;">Talk</span></h5>
                 <h5 class="mb-4">Explore Flavorful Moments, One Bite at a Time.</h5>
-
-                <div class="d-flex flex-row">
-                <a href="{% url 'profile:register' %}" class="btn btn-dark mr-3">Register</a>
-                <a href="{% url 'profile:login' %}" class="btn btn-secondary">Sign In</a>
+                <div class="d-flex flex-row justify-content-center">
+                    <a href="{% url 'profile:register' %}" class="btn btn-dark mr-2">Register</a>
+                    <a href="{% url 'profile:login' %}" class="btn btn-secondary ml-2">Sign In</a>
                 </div>
             </div>
-
-            {% comment %} easter egg {% endcomment %}
-            <div class="maria-text">Idea inspired by Maria Stamenkovic 🦦💕</div>
+            <div class="maria-text" style="font-weight: 600;">Idea inspired by Maria Stamenkovic 🦦💕</div>
         </div>
     </div>
 </body>

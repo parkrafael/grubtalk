@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+
+            <div class="d-flex align-items-center flex-column">
+                <h5 style="font-family: 'Neuton', sans-serif; font-weight: 600; font-size: 120px;">GrubTalk<h5>
+                <h5 class="mb-4">Explore Flavorful Moments, One Bite at a Time.</h5>
+
+                <div class="d-flex flex-row">
+                <a href="{% url 'profile:register' %}" class="btn btn-dark mr-3">Register</a>
+                <a href="{% url 'profile:login' %}" class="btn btn-secondary">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

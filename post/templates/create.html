@@ -16,27 +16,26 @@
 
     <style>
         body {
-            background-color: #F3F3EA;
+            background-color: #FFFFFF;
         }
         /* ============ navbar styling ============ */
         .navbar {
-            background-color: #F3F3EA; /* Background color matching the image */
+            background-color: #FFFFFF; /* Background color matching the image */
         }
 
         .navbar-nav a {
-            color: #483A4A;
+            color: #1E2125;
             text-decoration: none;
-            transition: color 0.75s;
         }
         
         .navbar-nav .nav-link:hover {
             color: #FFFFFF;
-            background-color: #483A4A; /* Add background color on hover */
+            background-color: #FFAC63; /* Add background color on hover */
             border-radius: 5px; /* Add rounded corners */
         }
 
         .navbar-nav .logo:hover {
-            color: #977E9B;
+            color: #FFAC63;
         }
         /* ============ create post form styling ============ */
         .header-text {
@@ -45,11 +44,9 @@
         }
 
         .form-box {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px !important; /* Increase specificity and use !important */
-            max-width: 700px;
-            margin: 50px auto;
+            max-width: 50%;
+            margin: 25px auto;
+            padding: 25px;
         }
 
     </style>
@@ -102,7 +99,7 @@
     <body>
         {% block content %}
         <div class="d-flex flex-column align-items-center justify-content-center form-box">
-            <div class="text-center header-text my-4">Create a New Post</div>
+            <div class="text-center header-text mb-5">Create a New Post</div>
 
             {% comment %} post form & button {% endcomment %}
             <form  method="POST" enctype="multipart/form-data">
