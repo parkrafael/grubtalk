@@ -49,6 +49,13 @@
             padding: 25px;
         }
 
+        .post-detail {
+            max-width: 50%;
+            margin: 25px auto;
+            padding: 25px;
+        }
+
+
     </style>
 </head>
     <!-- ============ navbar ============  -->
@@ -98,14 +105,14 @@
     <!-- ============ create post form ============  -->
     <body>
         {% block content %}
-        <div class="d-flex flex-column align-items-center justify-content-center form-box">
-            <div class="text-center header-text mb-4">Create a New Post</div>
+        <div class="post-detail">
+            <h1 class="post-title display-4 mb-5 text-center" style="font-weight: 600;">Create a New Post</h1>
 
             {% comment %} post form & button {% endcomment %}
             <form  method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button type="submit" class="btn btn-dark btn-block mb-5">Post</button>
+                <button type="submit" class="btn btn-dark btn-block mt-5">Post</button>
             </form>
         </div>
         {% endblock %}
