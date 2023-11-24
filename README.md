@@ -1,5 +1,5 @@
 # GrubTalk
-A social media photo sharing website built on [Django Framework](https://www.djangoproject.com/).
+A social restaurant review web application built on [Django Framework](https://www.djangoproject.com/).
 
 ### Technologies Used:
 1. Front-End: HTML5, CSS, Bootstrap 5.2
